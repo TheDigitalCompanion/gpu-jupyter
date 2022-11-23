@@ -1,5 +1,21 @@
 singleuser:
-  # Defines the default image
+  storage:
+    type: dynamic
+    extraLabels: {}
+    extraVolumes: []
+    extraVolumeMounts: []
+    static:
+      pvcName:
+      subPath: "{username}"
+    capacity: 50Gi
+    homeMountPath: /home/jovyan
+    dynamic:
+      storageClass:
+      pvcNameTemplate: claim-{username}{servername}
+      volumeNameTemplate: volume-{username}{servername}
+      storageAccessModes: [ReadWriteOnce]
+
+# Defines the default image
   image:
     name: jupyter/minimal-notebook
     tag: 2343e33dec46
