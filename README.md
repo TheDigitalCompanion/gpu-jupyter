@@ -2,6 +2,7 @@
 #### Leverage Jupyter Notebooks with the power of your NVIDIA GPU and perform GPU calculations using Tensorflow and Pytorch in collaborative notebooks. i
 
 
+```
 git clone git@github.com:TheDigitalCompanion/gpu-jupyter.git
 cd gpu-jupyter
 git branch
@@ -11,7 +12,7 @@ docker run --gpus all -d -it -p 8848:8888 -v $(pwd)/data:/home/jovyan/work -e GR
 docker build -t digitalcompanion/gpu-jupyter .build/ --network=host
 docker tag digitalcompanion/gpu-jupyter:latest digitalcompanion/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04
 docker push digitalcompanion/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04
-
+```
 ![Jupyterlab Overview](https://raw.githubusercontent.com/iot-salzburg/gpu-jupyter/master/extra/jupyterlab-overview.png)
 
 First of all, thanks to [docker-stacks](https://github.com/jupyter/docker-stacks) 
