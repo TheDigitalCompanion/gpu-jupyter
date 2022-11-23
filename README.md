@@ -1,8 +1,8 @@
-# GPU-Jupyter
-## Leverage Jupyter Notebooks with the power of your NVIDIA GPU and perform GPU calculations using Tensorflow and Pytorch in collaborative notebooks. 
+#### GPU-Jupyter
+##### Leverage Jupyter Notebooks with the power of your NVIDIA GPU and perform GPU calculations using Tensorflow and Pytorch in collaborative notebooks. 
 #### This is a customization / fork of https://github.com/iot-salzburg/gpu-jupyter
 
-
+Quick start:
 ```
 git clone git@github.com:TheDigitalCompanion/gpu-jupyter.git
 
