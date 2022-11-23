@@ -5,14 +5,23 @@
 
 ```
 git clone git@github.com:TheDigitalCompanion/gpu-jupyter.git
+
 cd gpu-jupyter
 git branch
+
 git checkout v1.4_cuda-11.6_ubuntu-20.04
+
 ./generate-Dockerfile.sh
-docker run --gpus all -d -it -p 8848:8888 -v $(pwd)/data:/home/jovyan/work -e GRANT_SUDO=yes -e JUPYTER_ENABLE_LAB=yes -e NB_UID="$(id -u)" -e NB_GID="$(id -g)" --user root --restart always --name gpu-jupyter_1 gpu-jupyter
+
 docker build -t digitalcompanion/gpu-jupyter .build/ --network=host
-docker tag digitalcompanion/gpu-jupyter:latest digitalcompanion/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04
+
+docker run --gpus all -d -it -p 8848:8888 -v $(pwd)/data:/home/jovyan/work -e GRANT_SUDO=yes -e JUPYTER_ENABLE_LAB=yes -e NB_UID="$(id -u)" -e NB_GID="$(id -g)"       --user root --restart always --name gpu-jupyter_1 gpu-jupyterdocker tag digitalcompanion/gpu-jupyter:latest digitalcompanion/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04
+
 docker push digitalcompanion/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04
+
+# upgrade helm with new revison after changes - high timeout due to large image(may take some time to fetch)
+time helm upgrade --install --cleanup-on-fail -f values-multi-profile.yaml jupyterhub -n jupyterhub ./jupyterhub-2.0.0.tgz --timeout 180m
+
 ```
 ![Jupyterlab Overview](https://raw.githubusercontent.com/iot-salzburg/gpu-jupyter/master/extra/jupyterlab-overview.png)
 
