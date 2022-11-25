@@ -13,7 +13,7 @@ singleuser:
       description: "If you want the additional bells and whistles: Python, R, and Julia."
       kubespawner_override:
         image: cschranz/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04 #jupyter/datascience-notebook:2343e33dec46
-             - display_name: "GPU-Jupyter environment"
+    - display_name: "GPU-Jupyter environment"
       description: "gpu enabled torch/tensorflow based on digitalcompanion/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04"
       kubespawner_override:
         image: digitalcompanion/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04
