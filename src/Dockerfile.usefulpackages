@@ -30,8 +30,19 @@ RUN pip install --no-cache-dir jupyter_contrib_nbextensions \
   jupyter_nbextensions_configurator rise
 #  jupyter nbextension enable codefolding/main
 RUN jupyter labextension install @ijmbarr/jupyterlab_spellchecker
+RUN pip install jupyterlab-prodigy
+RUN jupyter labextension install jupyterlab-prodigy
 
+RUN pip install transformers
+RUN pip install timm
+RUN pip install spacy
+
+RUN python -m spacy download en_core_web_sm
+RUN mkdir -p /home/$NB_USER/.prodigy/
+COPY prodigy.json /home/$NB_USER/.prodigy/prodigy.json
+RUN pip install prodigy -f https://XXXX-XXXX-XXXX-XXXX@download.prodi.gy
+RUN export PRODIGY_CONFIG="/home/$NB_USER/.prodigy/prodigy.json"
+RUN jupyter labextension install jupyterlab-prodigy
 RUN fix-permissions /home/$NB_USER
-
 # Switch back to jovyan to avoid accidental container runs as root
 USER $NB_UID
