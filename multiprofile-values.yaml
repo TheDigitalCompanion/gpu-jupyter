@@ -2,8 +2,8 @@ singleuser:
 
 # Defines the default image
   image:
-    name: cschranz/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04 
-    tag: 2343e33dec46
+    name: cschranz/gpu-jupyter 
+    tag: v1.4_cuda-11.6_ubuntu-20.04 
   profileList:
     - display_name: "Base Jupyter environment"
       description: "Minimally-functional Jupyter Notebook server (e.g., no LaTeX support for saving notebooks as PDFs)"
@@ -17,6 +17,10 @@ singleuser:
       description: "gpu enabled torch/tensorflow based on digitalcompanion/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04"
       kubespawner_override:
         image: digitalcompanion/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04
+    - display_name: "GPU-Jupyter-prodigy environment"                                                                                                                  
+      description: "gpu enabled as above plus prodigy <3"                                            
+      kubespawner_override:                                                                                                                                    
+        image: digitalcompanion/gpu-jupyter-prodigy:v1.0                                                                                        
     - display_name: "All Spark notebook"
       description: "Includes Python and R support for Apache Spark"
       kubespawner_override:
