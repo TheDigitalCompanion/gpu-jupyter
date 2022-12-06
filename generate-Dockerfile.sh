@@ -124,6 +124,10 @@ else
   echo "Set 'no-useful-packages', not installing stuff within src/Dockerfile.usefulpackages."
 fi
 
+# Security fixes
+ cat src/Dockerfile.securityfixes >> $DOCKERFILE
+
+
 # Copy the demo notebooks and change permissions
 cp -r extra/Getting_Started data
 chmod -R 755 data/
