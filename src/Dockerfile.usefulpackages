@@ -36,11 +36,12 @@ RUN jupyter labextension install jupyterlab-prodigy
 RUN pip install transformers
 RUN pip install timm
 RUN pip install spacy
-
+RUN pip install accelerate
+RUN pip install scipy
 RUN python -m spacy download en_core_web_sm
 RUN mkdir -p /home/$NB_USER/.prodigy/
 COPY prodigy.json /home/$NB_USER/.prodigy/prodigy.json
-RUN pip install prodigy -f https://XXXX-XXXX-XXXX-XXXX@download.prodi.gy
+#RUN pip install prodigy -f https://XXXX-XXXX-XXXX-XXXX@download.prodi.gy
 RUN export PRODIGY_CONFIG="/home/$NB_USER/.prodigy/prodigy.json"
 RUN jupyter labextension install jupyterlab-prodigy
 RUN fix-permissions /home/$NB_USER

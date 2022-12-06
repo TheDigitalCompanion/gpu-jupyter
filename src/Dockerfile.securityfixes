@@ -2,11 +2,14 @@ LABEL authors="Fredrik Hansen"
 
 USER root
 
-RUN pip install --no-cache-dir ipyleaflet "plotly>=4.14.3" "ipywidgets>=7.5"
-
 # Install important packages and Graphviz
 RUN apt-get update \
  && apt-get -y remove vim xterm 
+
+RUN pip install --upgrade Pillow
+RUN pip install --upgrade mpmath 
+RUN pip install --upgrade graphviz
+RUN pip install --upgrade tensorflow==2.9.3
 
 # Install various extensions
 RUN fix-permissions $CONDA_DIR
