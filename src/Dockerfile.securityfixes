@@ -4,7 +4,7 @@ USER root
 
 # Install important packages and Graphviz
 RUN apt-get update \
- && apt-get -y remove vim xterm 
+ && apt-get -y upgrade 
 
 RUN pip install --upgrade Pillow
 RUN pip install --upgrade mpmath 
