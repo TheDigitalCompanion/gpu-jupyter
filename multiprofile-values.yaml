@@ -13,14 +13,14 @@ singleuser:
       description: "If you want the additional bells and whistles: Python, R, and Julia."
       kubespawner_override:
         image: cschranz/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04 #jupyter/datascience-notebook:2343e33dec46
-    - display_name: "GPU-Jupyter environment"
-      description: "gpu enabled torch/tensorflow based on digitalcompanion/gpu-jupyter:v1.4_cuda-11.6_ubuntu-20.04"
+    - display_name: "Torch 2.0 environment"
+      description: "gpu enabled torch 2.0 test bed"
       kubespawner_override:
         image: digitalcompanion/gpu-jupyter-prodigy:v1.4
-    - display_name: "GPU-Jupyter-prodigy environment v1.4"                                                                                                                  
+    - display_name: "GPU-Jupyter-prodigy custom environment v1.7"                                                                                                                  
       description: "gpu enabled as above plus transformers, scipy and prodigy <3"                                            
       kubespawner_override:                                                                                                                                    
-        image: digitalcompanion/gpu-jupyter-prodigy:v1.4                                                                                        
+        image: digitalcompanion/gpu-jupyter-prodigy:v1.7                                                                                        
     - display_name: "All Spark notebook"
       description: "Includes Python and R support for Apache Spark"
       kubespawner_override:

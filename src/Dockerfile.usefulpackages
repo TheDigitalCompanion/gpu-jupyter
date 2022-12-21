@@ -33,11 +33,14 @@ RUN jupyter labextension install @ijmbarr/jupyterlab_spellchecker
 RUN pip install jupyterlab-prodigy
 RUN jupyter labextension install jupyterlab-prodigy
 
+RUN pip install datasets
 RUN pip install transformers
 RUN pip install timm
 RUN pip install spacy
 RUN pip install accelerate
 RUN pip install scipy
+RUN apt install -y git-lfs
+RUN conda install -y -q conda-forge::cudatoolkit=11.7 
 RUN python -m spacy download en_core_web_sm
 RUN mkdir -p /home/$NB_USER/.prodigy/
 COPY prodigy.json /home/$NB_USER/.prodigy/prodigy.json
